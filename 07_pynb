@@ -1,0 +1,128 @@
+a) 
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        return "Stack is empty"
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+        return "Stack is empty"
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def size(self):
+        return len(self.items)
+
+    def display(self):
+        return self.items
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def enqueue(self, item):
+        self.items.append(item)
+
+    def dequeue(self):
+        if not self.is_empty():
+            return self.items.pop(0)
+        return "Queue is empty"
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def size(self):
+        return len(self.items)
+
+    def display(self):
+        return self.items
+
+
+# Testing Stack operations
+print("Testing Stack operations")
+stack = Stack()
+print("Initial Stack:", stack.display())
+
+stack.push(1)
+stack.push(2)
+stack.push(3)
+print("Stack after pushing 1, 2, 3:", stack.display())
+
+print("Pop from Stack:", stack.pop())
+print("Stack after popping:", stack.display())
+
+print("Peek into Stack:", stack.peek())
+print("Stack size:", stack.size())
+
+print("Pop from Stack:", stack.pop())
+print("Pop from Stack:", stack.pop())
+print("Pop from Stack:", stack.pop())  # Testing underflow condition
+print("Final Stack:", stack.display())
+
+# Testing Queue operations
+print("\nTesting Queue operations")
+queue = Queue()
+print("Initial Queue:", queue.display())
+
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+print("Queue after enqueuing 1, 2, 3:", queue.display())
+
+print("Dequeue from Queue:", queue.dequeue())
+print("Queue after dequeuing:", queue.display())
+
+print("Queue size:", queue.size())
+
+print("Dequeue from Queue:", queue.dequeue())
+print("Dequeue from Queue:", queue.dequeue())
+print("Dequeue from Queue:", queue.dequeue())  # Testing underflow condition
+print("Final Queue:", queue.display())
+
+
+b)
+import numpy as np
+def read_and_display_2d_array():
+    rows = int(input("Enter the number of rows: "))
+    cols = int(input("Enter the number of columns: "))
+    print("Enter the elements of the array:")
+    array_elements = [list(map(int, input().split())) for _ in range(rows)]
+    array = np.array(array_elements)
+    print("Original Array:")
+    print(array)
+    return array
+
+def display_reverse(array):
+    reversed_array = array.flatten()[::-1]
+    print("Array elements in reverse order:")
+    print(reversed_array)
+
+def display_principal_diagonal(array):
+    if array.shape[0] == array.shape[1]:  # Check if it's a square matrix
+        principal_diagonal = np.diagonal(array)
+        print("Principal diagonal elements:")
+        print(principal_diagonal)
+    else:
+        print("Array is not square, cannot extract principal diagonal elements.")
+
+def sort_2d_array(array):
+    sorted_ascending = np.sort(array, axis=None).reshape(array.shape)
+    sorted_descending = np.sort(array, axis=None)[::-1].reshape(array.shape)
+    print("2D Array sorted in ascending order:")
+    print(sorted_ascending)
+    print("2D Array sorted in descending order:")
+    print(sorted_descending)
+
+if __name__ == "__main__":
+    array = read_and_display_2d_array()
+    display_reverse(array)
+    display_principal_diagonal(array)
+    sort_2d_array(array)
