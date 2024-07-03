@@ -1,0 +1,41 @@
+**Dictionary Initialization and Regular Expressions**
+    - **a. Python program for dictionary initialization and operations:**
+    ```python
+    def dictionary_operations():
+        passwd = {'rahul': 'genius', 'kumar': 'smart', 'ankita': 'intelligent'}
+
+        # i. Print all items
+        print(passwd.items())
+        
+        # ii. Print all keys
+        print(passwd.keys())
+        
+        # iii. Print all values
+        print(passwd.values())
+        
+        # iv. Get password of user 'rahul'
+        print(passwd['rahul'])
+        
+        # v. Change password of 'ankita'
+        passwd['ankita'] = 'brilliant'
+        print(passwd['ankita'])
+
+    dictionary_operations()
+    ```
+
+    - **b. Python program to count vowels, consonants, and digits using regular expressions:**
+    ```python
+    import re
+
+    def count_elements(text):
+        vowels = re.findall(r'[aeiouAEIOU]', text)
+        consonants = re.findall(r'[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]', text)
+        digits = re.findall(r'\d', text)
+
+        print(f"Vowels: {len(vowels)}")
+        print(f"Consonants: {len(consonants)}")
+        print(f"Digits: {len(digits)}")
+
+    text = input("Enter text: ")
+    count_elements(text)
+    ```

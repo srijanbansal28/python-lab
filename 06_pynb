@@ -1,0 +1,36 @@
+class SavingAccount:
+    def _init_(self,account_number,initial_balance=0):
+        self.account_number = account_number
+        self.balance = initial_balance
+
+    def deposit(self,amount):
+        if amount<=0:
+            raise ValueError("\nDeposit amount should be positive")
+        else:
+            self.balance+=amount
+            print(f"\nDeposited {amount}. New Balance is {self.balance}")
+
+    def withdraw(self,amount):
+        if amount > self.balance:
+            raise ValueError("\nInsufficient Balance")
+        if amount <=0 :
+            raise ValueError("\nWithdraw amount should be positive")
+        else:
+            self.balance-=amount
+            print(f"\nAmount withdraw {amount}. New Balance : {self.balance}")
+
+    def check_balance(self):
+        print(f"\nYour current banking account has a balance of {self.balance}")
+
+def main():
+    account = SavingAccount("360428",1000)
+    try:
+        account.check_balance()
+        account.deposit(500)
+        account.withdraw(200)
+        account.withdraw(2000)
+    except ValueError as e:
+        print(f"Value Error occured : {e}")
+
+if _name_=="_main_":
+    main()

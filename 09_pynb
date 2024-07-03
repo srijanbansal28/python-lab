@@ -1,0 +1,36 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+
+def main():
+    iris = load_iris()
+    df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+    df['species'] = iris.target
+    df.plot()
+    plt.title('Iris Dataset Visualization')
+    plt.show()
+    print("Scatter plot of sepal length and sepal width")
+    df.plot.scatter(x='sepal length (cm)',y='sepal width (cm)')
+    plt.title("Scatter plot btw sepal length and width")
+    plt.show()
+    print("Scatter plot with different colors : ")
+    colors = df['species']
+    Scatter = plt.scatter(df['sepal length (cm)'],df['sepal width (cm)'],c=colors,cmap='viridis')
+    plt.colorbar(Scatter,label='Species')
+    plt.title("Scatter Plot between Sepal Length and Sepal Width with Colors")
+    plt.xlabel('Sepal length (cm)')
+    plt.ylabel('Sepal width (cm)')
+    plt.show()
+    df['sepal length (cm)'].plot.hist(bins=30)
+    plt.title("Histogram of sepal length")
+    plt.xlabel('Sepal length (cm)')
+    plt.ylabel('Frequency')
+    plt.show()
+    
+    
+    
+if _name_=="_main_":
+    main()
+
+
+    

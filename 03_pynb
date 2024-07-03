@@ -1,0 +1,79 @@
+ **Dictionary Operations and Array Functions**
+    - **a. Python program for dictionary operations:**
+    ```python
+    def dictionary_operations():
+        dictionary = {}
+
+        def add_entry(word, meaning):
+            dictionary[word] = meaning
+
+        def search_word(word):
+            return dictionary.get(word, "Word not found")
+
+        def find_words_with_meaning(meaning):
+            return [word for word, mean in dictionary.items() if mean == meaning]
+
+        def remove_entry(word):
+            if word in dictionary:
+                del dictionary[word]
+
+        def display_sorted():
+            for word in sorted(dictionary.keys()):
+                print(f"{word}: {dictionary[word]}")
+
+        # Menu-driven program
+        while True:
+            print("1. Add entry")
+            print("2. Search word")
+            print("3. Find words with same meaning")
+            print("4. Remove entry")
+            print("5. Display all words sorted alphabetically")
+            print("6. Exit")
+            choice = int(input("Enter your choice: "))
+
+            if choice == 1:
+                word = input("Enter word: ")
+                meaning = input("Enter meaning: ")
+                add_entry(word, meaning)
+            elif choice == 2:
+                word = input("Enter word to search: ")
+                print(search_word(word))
+            elif choice == 3:
+                meaning = input("Enter meaning to search: ")
+                print(find_words_with_meaning(meaning))
+            elif choice == 4:
+                word = input("Enter word to remove: ")
+                remove_entry(word)
+            elif choice == 5:
+                display_sorted()
+            elif choice == 6:
+                break
+            else:
+                print("Invalid choice")
+
+    dictionary_operations()
+    ```
+
+    - **b. Python program for array functions:**
+    ```python
+    def array_operations():
+        def max_min(arr):
+            print(f"Max: {max(arr)}")
+            print(f"Min: {min(arr)}")
+
+        def second_largest(arr):
+            first = second = float('-inf')
+            for num in arr:
+                if num > first:
+                    second = first
+                    first = num
+                elif num > second and num != first:
+                    second = num
+            print(f"Second Largest: {second}")
+
+        array = [int(x) for x in input("Enter numbers separated by space: ").split()]
+        max_min(array)
+        second_largest(array)
+
+    array_operations()
+    ```

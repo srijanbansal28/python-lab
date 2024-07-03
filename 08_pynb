@@ -1,0 +1,8 @@
+a)import random
+random_numbers = [random.randint(1,10000) for i in range(0,20)]
+def filter_odd_numbers(numbers):
+    filter_numbers = [num for num in numbers if num%2!=0 and (10<=num<=99 or 1000<=num<=9999)]
+    return filter_numbers
+filter_numbers = filter_odd_numbers(random_numbers)
+print(filter_numbers)
+

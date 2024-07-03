@@ -1,0 +1,39 @@
+2. **Prime Numbers and List Operations**
+    - **a. Python program to display prime numbers in a range:**
+    ```python
+    def is_prime(num):
+        if num <= 1:
+            return False
+        for i in range(2, int(num**0.5) + 1):
+            if num % i == 0:
+                return False
+        return True
+    
+    def prime_numbers_in_range(start, end):
+        primes = [num for num in range(start, end + 1) if is_prime(num)]
+        print(primes)
+    
+    start = int(input("Enter start of range: "))
+    end = int(input("Enter end of range: "))
+    prime_numbers_in_range(start, end)
+    ```
+
+    - **b. Python program for list operations:**
+    ```python
+    def list_operations():
+        subjects = ["Math", "Physics", "Chemistry", "Biology", "Python Programming Lab"]
+        for subject in subjects:
+            print(subject)
+        print(subjects[1], subjects[4])
+        print(subjects[:4])
+        print(subjects[-4:])
+        print("Python Programming Lab" in subjects)
+        subjects.append("Machine Learning")
+        subjects.insert(2, "Data Science")
+        print(subjects)
+        subjects.remove("Math")
+        subjects.pop(3)
+        print(subjects)
+    
+    list_operations()
+    ```

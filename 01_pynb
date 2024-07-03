@@ -1,0 +1,35 @@
+1. **Basic Arithmetic Operations and List of Tuples**
+    - **a. Python program for arithmetic operations:**
+    ```python
+    def arithmetic_operations():
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        choice = int(input("Choose operation: 1-Add, 2-Subtract, 3-Multiply, 4-Divide: "))
+        
+        if choice == 1:
+            print(f"Result: {num1 + num2}")
+        elif choice == 2:
+            print(f"Result: {num1 - num2}")
+        elif choice == 3:
+            print(f"Result: {num1 * num2}")
+        elif choice == 4:
+            if num2 != 0:
+                print(f"Result: {num1 / num2}")
+            else:
+                print("Cannot divide by zero")
+        else:
+            print("Invalid choice")
+    
+    arithmetic_operations()
+    ```
+
+    - **b. Python program for list of tuples sorted by length of string:**
+    ```python
+    def sort_tuples_by_length():
+        strings = input("Enter strings separated by spaces: ").split()
+        tuples_list = [(s, len(s)) for s in strings]
+        sorted_list = sorted(tuples_list, key=lambda x: x[1])
+        print(sorted_list)
+    
+    sort_tuples_by_length()
+    ```
