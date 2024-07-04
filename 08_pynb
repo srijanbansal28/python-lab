@@ -6,3 +6,37 @@ def filter_odd_numbers(numbers):
 filter_numbers = filter_odd_numbers(random_numbers)
 print(filter_numbers)
 
+b)
+def create_and_analyze_file():
+    # Create and open a text file in write mode
+    with open('user_text.txt', 'w') as file:
+        print("Enter 5-6 lines of text (press Enter after each line):")
+        for _ in range(5):
+            line = input()
+            file.write(line + '\n')
+
+    # Initialize counters for uppercase, lowercase, and digits
+    upper_count = 0
+    lower_count = 0
+    digit_count = 0
+
+    # Read the file and count characters
+    with open('user_text.txt', 'r') as file:
+        for line in file:
+            for char in line:
+                if char.isupper():
+                    upper_count += 1
+                elif char.islower():
+                    lower_count += 1
+                elif char.isdigit():
+                    digit_count += 1
+
+    # Display the details
+    print(f"\nDetails of the file:")
+    print(f"Number of uppercase letters: {upper_count}")
+    print(f"Number of lowercase letters: {lower_count}")
+    print(f"Number of digits: {digit_count}")
+
+# Run the program
+create_and_analyze_file()
+
