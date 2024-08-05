@@ -1,70 +1,48 @@
-def handle_exceptions():
-    try:
-        # NameError: Trying to access an undefined variable
-        print(undefined_variable)
-    except NameError as e:
-        print(f"NameError occurred: {e}")
+a)
+try:
+    a = 20 / 0
+except ZeroDivisionError:
+    print("division by 0 not allowed")
 
-    try:
-        # IndexError: Trying to access an index that is out of range
-        my_list = [1, 2, 3]
-        print(my_list[5])
-    except IndexError as e:
-        print(f"IndexError occurred: {e}")
+try:
+    print(a)
+except NameError:
+    print("Name error")
 
-    try:
-        # KeyError: Trying to access a non-existent key in a dictionary
-        my_dict = {'a': 1, 'b': 2}
-        print(my_dict['c'])
-    except KeyError as e:
-        print(f"KeyError occurred: {e}")
+try:
+    i = [1, 2, 3]
+    print(i[49])
+except IndexError:
+    print("Index error")
 
-    try:
-        # ZeroDivisionError: Trying to divide by zero
-        result = 10 / 0
-    except ZeroDivisionError as e:
-        print(f"ZeroDivisionError occurred: {e}")
+try:
+    d = {'a': 1, 'b': 2}
+    print(d['f'])
+except KeyError:
+    print("Key Error")
 
-# Calling the function to demonstrate exceptions
-handle_exceptions()
+print("\nAll exceptions handled successfully!")
 
-
-
-
-
-
+b)
 import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load the Iris dataset
-url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
-column_names = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class']
-df = pd.read_csv(url, names=column_names)
+data = pd.read_csv("iris.csv")  # Assuming the dataset is named "iris.csv" in the same directory
 
-# Display first 5 rows of the dataset
-print("First 5 rows of the dataset:")
-print(df.head())
-print()
+# Display the first 5 rows
+print("First 5 rows:\n", data.head())
 
-# Display last 5 rows of the dataset
-print("Last 5 rows of the dataset:")
-print(df.tail())
-print()
+# Display the last 5 rows
+print("\nLast 5 rows:\n", data.tail())
 
-# Display information about the dataset
-print("Information about the dataset:")
-print(df.info())
-print()
+# Display dataset information
+print("\nDataset information:\n", data.info())
 
-# Display overview of values in each column
-print("Overview of values in each column:")
-print(df.describe())
-print()
+# Display value overview of each column (descriptive statistics)
+print("\nValue overview of each column:\n", data.describe())
 
-# Visualize the dataset using plot()
-print("Visualizing the dataset:")
-df.plot(kind='scatter', x='sepal_length', y='sepal_width', c='DarkBlue')
-plt.title('Scatter Plot of Sepal Length vs Sepal Width')
-plt.xlabel('Sepal Length (cm)')
-plt.ylabel('Sepal Width (cm)')
+data.plot()
 plt.show()
+
+print("\nVisualizations generated successfully!")
