@@ -1,36 +1,61 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.datasets import load_iris
 
-def main():
-    iris = load_iris()
-    df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
-    df['species'] = iris.target
-    df.plot()
-    plt.title('Iris Dataset Visualization')
-    plt.show()
-    print("Scatter plot of sepal length and sepal width")
-    df.plot.scatter(x='sepal length (cm)',y='sepal width (cm)')
-    plt.title("Scatter plot btw sepal length and width")
-    plt.show()
-    print("Scatter plot with different colors : ")
-    colors = df['species']
-    Scatter = plt.scatter(df['sepal length (cm)'],df['sepal width (cm)'],c=colors,cmap='viridis')
-    plt.colorbar(Scatter,label='Species')
-    plt.title("Scatter Plot between Sepal Length and Sepal Width with Colors")
-    plt.xlabel('Sepal length (cm)')
-    plt.ylabel('Sepal width (cm)')
-    plt.show()
-    df['sepal length (cm)'].plot.hist(bins=30)
-    plt.title("Histogram of sepal length")
-    plt.xlabel('Sepal length (cm)')
-    plt.ylabel('Frequency')
-    plt.show()
-    
-    
-    
-if _name_=="_main_":
-    main()
+# Read the dataset
+data = {'Name': ['John', 'Anna', 'Peter', 'Linda'], 
+        'Age': [28, 24, 35, 32], 
+        'Score': [85, 90, 78, 92]}
+df = pd.DataFrame(data)
 
+# Visualize the dataset using plot()
+plt.plot(df['Age'])
+plt.title('Age Distribution')
+plt.xlabel('Index')
+plt.ylabel('Age')
+plt.show()
 
-    
+# Draw the Scatter plot for the dataset on any column
+plt.scatter(df['Age'], df['Score'])
+plt.title('Age vs Score')
+plt.xlabel('Age')
+plt.ylabel('Score')
+plt.show()
+
+# Display the scatter plot with different colors
+colors = ['red', 'green', 'blue', 'yellow']
+plt.scatter(df['Age'], df['Score'], c=colors)
+plt.title('Age vs Score with Different Colors')
+plt.xlabel('Age')
+plt.ylabel('Score')
+plt.show()
+
+# Draw the Histogram for the dataset on any column
+plt.hist(df['Score'], bins=5)
+plt.title('Score Distribution')
+plt.xlabel('Score')
+plt.ylabel('Frequency')
+plt.show()
+
+b)
+def divide(numerator, denominator):
+  try:
+    result = numerator / denominator
+  except ZeroDivisionError:
+    print("Error: Cannot divide by zero.")
+  except (TypeError, ValueError):
+    print("Error: Invalid input types. Please enter numbers for both numerator and denominator.")
+  else:
+    print("Division successful.")
+    return result
+  finally:
+    print("This is always executed, regardless of exceptions.")
+
+try:
+  divide(10, 2)  # Successful division
+  divide(10, 0)  # ZeroDivisionError
+  divide("hello", 2)  # ValueError (type mismatch)
+  divide(10, None)  # ValueError (None type)
+except Exception as e:  # Catch any unhandled exceptions
+  print("Unexpected error:", e)
+
+print("\nAll test cases completed.")
